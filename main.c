@@ -200,34 +200,71 @@ void *cenarioLindo(void *arg) {
     return NULL;
 }
 
+void print_flappy_bat() {
+    printf("  ______  _         _____   _____   __      __  ____        _____ \n");
+    printf(" |  ____|| |       |  __ \\ |  __ \\  \\ \\    / / |  _ \\      |_   _|\n");
+    printf(" | |__   | |  __ _ | |__) || |__) |  \\ \\  / /  | |_) |  __ _ | |  \n");
+    printf(" |  __|  | | / _` ||  ___/ |  ___/    \\   /    |  _ <  / _` || |  \n");
+    printf(" | |     | || (_| || |     | |         | |     | |_) || (_| || |  \n");
+    printf(" |_|     |_| \\__,_||_|     |_|         |_|     |____/ \\__,_| |_|  \n");
+}
+
 int main() {
     Player player;
-    printf("Digite seu nome: ");
-    scanf("%s", player.name);
-    configureTerminal();
-    Queue queue = construct_fila();
-    pthread_t threadA, threadB;
+    int escolha;
 
     FILE *ranking;
     ranking = fopen("ranking.txt", "a");
 
-    MOVE_HOME();
+    print_flappy_bat();
+    printf("\n\nDigite seu nome para iniciar: ");
+    scanf("%s", player.name);
 
+    system("cls");
 
-    boneco = (boneco_t*)malloc(sizeof(boneco_t));
+    printf("===============Menu===============\n\t1 - Jogar\n\t2 - Ranking\n\t3 - Creditos\n\t0 - Sair\n");
+    scanf("%i", &escolha);
+    system("cls");
+    switch (escolha) {
+    case 1:
+        configureTerminal();
+        Queue queue = construct_fila();
+        pthread_t threadA, threadB;
 
-    pthread_mutex_init(&mutex, NULL);
-    pthread_cond_init(&cond_var, NULL);
+        MOVE_HOME();
 
-    pthread_create(&threadA, NULL, cenarioLindo, NULL);
-    pthread_create(&threadB, NULL, morceguinho, NULL);
+        boneco = (boneco_t*)malloc(sizeof(boneco_t));
 
-    // Espera pela finalização das threads
-    pthread_join(threadB, NULL);
-    pthread_join(threadA, NULL);
+        pthread_mutex_init(&mutex, NULL);
+        pthread_cond_init(&cond_var, NULL);
 
-    pthread_mutex_destroy(&mutex);
-    pthread_cond_destroy(&cond_var);
+        pthread_create(&threadA, NULL, cenarioLindo, NULL);
+        pthread_create(&threadB, NULL, morceguinho, NULL);
+
+        // Espera pela finalização das threads
+        pthread_join(threadB, NULL);
+        pthread_join(threadA, NULL);
+
+        pthread_mutex_destroy(&mutex);
+        pthread_cond_destroy(&cond_var);
+        break;
+    
+    case 2:
+        // Colocar pra printar o ranking
+        break;
+    
+    case 3:
+        printf("======================================================CREDITOS=========================================================\n\nQueridos amigos e apoiadores,\nQueremos agradecer imensamente por todo o apoio e encorajamento ao longo da criacao do nosso jogo 'Flappy Bat'.\nSabrina, Karlla e Kauane enfrentamos uma jornada repleta de desafios e aprendizados.\nDesde o inicio, sabiamos que queriamos criar algo especial inspirado no classico Flappy Bird.\n\nDurante o processo, enfrentamos muitos obstaculos, desde bugs complexos ate momentos de duvida e medo de nao\nconseguirmos concluir o projeto.\nMas, com trabalho arduo, colaboracao e o apoio mutuo, conseguimos superar cada dificuldade.\n\nO 'Flappy Bat' nao seria possivel sem a nossa determinacao conjunta e sem o suporte de todos voces.\nE com grande alegria que compartilhamos o resultado final deste projeto, que representa nao apenas\num jogo, mas tambem nosso comprometimento e paixao por criar algo unico e divertido.\n\nAgradecemos do fundo do coracao por fazerem parte dessa jornada conosco.\nEsperamos que voces se divirtam tanto jogando quanto nos tivemos criando.\n\nCom carinho,\nSabrina, Karlla e Kauane\n\nPs: Tambem gostaria de agradecer muito ao nosso querido professor Nicolas que esteve ao nosso lado em todos os\nmomentos, sem seus ensinamentos nos nao teriamos chegado ate onde estamos!");
+        Sleep(1000000);
+        break;
+    case 0:
+        printf("Tchau, %s!", player.name);
+        Sleep(3000);
+        break;
+    default:
+        printf("Insira um numero valido!");
+        break;
+    }
 
     player.score = pontos;
 

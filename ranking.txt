@@ -15,3 +15,5 @@ Nome: Sabrina | Pontos: 1
 Nome: Sabrina | Pontos: 1
 Nome: Sabrina | Pontos: 1
 Nome: sabrina | Pontos: 1
+Nome: nicolas | Pontos: 1
+Nome: nic | Pontos: 3
