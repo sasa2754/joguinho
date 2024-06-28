@@ -227,6 +227,8 @@ int main() {
     system("cls");
     switch (escolha) {
     case 1:
+        // printf("================================Tutorial===============================\n- Aperte ESPACE para pular\n- Cuidado com EASTER EGGS (nao sao bugs) no meio do jogo\n- As vezes o jogo trava, mas e so fechar e abrir que ele funciona :)");
+        // Sleep(10000);
         configureTerminal();
         Queue queue = construct_fila();
         pthread_t threadA, threadB;
@@ -254,7 +256,7 @@ int main() {
         break;
     
     case 3:
-        printf("======================================================CREDITOS=========================================================\n\nQueridos amigos e apoiadores,\nQueremos agradecer imensamente por todo o apoio e encorajamento ao longo da criacao do nosso jogo 'Flappy Bat'.\nSabrina, Karlla e Kauane enfrentamos uma jornada repleta de desafios e aprendizados.\nDesde o inicio, sabiamos que queriamos criar algo especial inspirado no classico Flappy Bird.\n\nDurante o processo, enfrentamos muitos obstaculos, desde bugs complexos ate momentos de duvida e medo de nao\nconseguirmos concluir o projeto.\nMas, com trabalho arduo, colaboracao e o apoio mutuo, conseguimos superar cada dificuldade.\n\nO 'Flappy Bat' nao seria possivel sem a nossa determinacao conjunta e sem o suporte de todos voces.\nE com grande alegria que compartilhamos o resultado final deste projeto, que representa nao apenas\num jogo, mas tambem nosso comprometimento e paixao por criar algo unico e divertido.\n\nAgradecemos do fundo do coracao por fazerem parte dessa jornada conosco.\nEsperamos que voces se divirtam tanto jogando quanto nos tivemos criando.\n\nCom carinho,\nSabrina, Karlla e Kauane\n\nPs: Tambem gostaria de agradecer muito ao nosso querido professor Nicolas que esteve ao nosso lado em todos os\nmomentos, sem seus ensinamentos nos nao teriamos chegado ate onde estamos!");
+        printf("======================================================CREDITOS=========================================================\n\nQueridos amigos e apoiadores,\nQueremos agradecer imensamente por todo o apoio e encorajamento ao longo da criacao do nosso jogo 'Flappy Bat'.\nSabrina, Karlla e Kauane enfrentamos uma jornada repleta de desafios e aprendizados.\nDesde o inicio, sabiamos que queriamos criar algo especial inspirado no classico Flappy Bird.\n\nDurante o processo, enfrentamos muitos obstaculos, desde bugs complexos ate momentos de duvida e medo de nao\nconseguirmos concluir o projeto.\nMas, com trabalho arduo, colaboracao e o apoio mutuo, conseguimos superar cada dificuldade.\n\nO 'Flappy Bat' nao seria possivel sem a nossa determinacao conjunta e sem o suporte de todos voces.\nE com grande alegria que compartilhamos o resultado final deste projeto, que representa nao apenas\num jogo, mas tambem nosso comprometimento e paixao por criar algo unico e divertido.\n\nAgradecemos do fundo do coracao por fazerem parte dessa jornada conosco.\nEsperamos que voces se divirtam tanto jogando quanto nos tivemos criando.\n\nCom carinho,\nSabrina, Karlla e Kauane\n\nPs: Tambem gostariamos de agradecer muito ao nosso querido professor Nicolas que esteve ao nosso lado em todos os\nmomentos, sem seus ensinamentos nos nao teriamos chegado ate onde estamos!");
         Sleep(1000000);
         break;
     case 0:
