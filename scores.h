@@ -77,18 +77,5 @@ void mergeSort(Player arr[], int l, int r) {
     }
 }
 
-// ordena a lista
-void sort_highscore(Queue *queue) {
-    if (queue->size > 1) {
-        mergeSort(queue->array, 0, queue->size - 1);
-    }
-}
-
-// printa no .txt
-void display_scores(FILE * file, Queue *queue) {
-    for (int i = 0; i < queue->size; i++) {
-        fprintf(file, "=== %d - %s ===\n\n   SCORE: %d\n\n", i, queue->array[i].name, queue->array[i].score);
-    }
-}
 
 #endif // !SCORES

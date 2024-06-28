@@ -20,18 +20,6 @@ typedef struct Player{
 
 } Player;
 
-typedef struct {
-    int x;
-    int y;
-    int value;
-
-} Bat;
-
-void gravity(Bat *bat)
-{
-    bat->y++;
-}
-
 Pipe construct_pipe()
 {
     Pipe newpipe;
@@ -49,16 +37,6 @@ Player construct_player(char name[6])
     newplayer.score = 0;
 
     return newplayer;
-}
-
-Bat construct_bat()
-{
-    Bat newbat;
-    newbat.x = BAT_X;
-    newbat.y = BAT_Y;
-    newbat.value = BAT_VALUE;
-
-    return newbat;
 }
 
 #endif // !STRCTS
